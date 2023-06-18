@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class dbManager extends SQLiteOpenHelper {
     private static final String dbname="dbHafiz";
-    private int a ;
+
 
     public dbManager(@Nullable Context context) {
         super(context, dbname, null, 1);
@@ -18,7 +18,7 @@ public class dbManager extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String query="create table tbl_content(id integer primary key,name text,age int)";
+        String query="create table tbl_content(id text primary key,name text,age text)";
         sqLiteDatabase.execSQL(query);
 
     }
@@ -33,7 +33,7 @@ public class dbManager extends SQLiteOpenHelper {
 
     }
 
-    public String addRecords(int id,String name,int age)
+    public String addRecords(String id,String name,String age)
     {
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues cv=new ContentValues();
